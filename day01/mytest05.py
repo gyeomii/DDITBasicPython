@@ -5,4 +5,4 @@ multiple = 0
 print("<",aa,"단>" )
 for i in range(1,9+1):
     multiple = aa * i
-    print(a + " *", i, "=",multiple)
+    print(f"{a} * {i} = {multiple}")
