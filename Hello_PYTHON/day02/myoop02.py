@@ -16,7 +16,7 @@ class JungEun:
     def ssorau(self):
         self.missile -= 100
 
-class SungWoo(Xi, Putin, JungEun):
+class Child(Xi, Putin, JungEun):
     def __init__(self):
         Xi.__init__(self)
         Putin.__init__(self)
@@ -31,10 +31,10 @@ class SungWoo(Xi, Putin, JungEun):
     def ssorau(self):
         super().ssorau()
         
-sw = SungWoo()
+ch = Child()
 
-print(f"money : {sw.money}, nuclear : {sw.nuclear}, missile : {sw.missile}")
-sw.steal(100)
-sw.alzheimer()
-sw.ssorau()
-print(f"money : {sw.money}, nuclear : {sw.nuclear}, missile : {sw.missile}")
+print(f"money : {ch.money}, nuclear : {ch.nuclear}, missile : {ch.missile}")
+ch.steal(100)
+ch.alzheimer()
+ch.ssorau()
+print(f"money : {ch.money}, nuclear : {ch.nuclear}, missile : {ch.missile}")
