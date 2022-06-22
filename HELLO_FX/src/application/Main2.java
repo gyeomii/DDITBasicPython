@@ -7,21 +7,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Main2 extends Application {
+	Parent root;
+	Scene scene;
+	Button btn;
+	TextField tf;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("main2.fxml"));
-			Scene scene = new Scene(root, 400, 400);
-			Label lbl = (Label) scene.lookup("#lbl");
-			Button btn = (Button) scene.lookup("#btn");
+			root = FXMLLoader.load(getClass().getResource("main2.fxml"));
+			scene = new Scene(root, 400, 400);
+			btn = (Button)scene.lookup("#btn");
+			tf = (TextField)scene.lookup("#tf");
 			btn.setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
-					lbl.setText("Good Evening");
+					plusOne();
 				}
 			});
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -32,6 +36,12 @@ public class Main2 extends Application {
 		}
 	}
 
+	public void plusOne() {
+		int n = Integer.parseInt(tf.getText());
+		String txt = String.valueOf(++n);
+		tf.setText(txt);
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
