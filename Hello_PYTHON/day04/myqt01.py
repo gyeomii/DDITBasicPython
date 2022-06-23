@@ -1,21 +1,32 @@
 import sys
+from PyQt5.QtWidgets import *
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
 
-# UI파일 연결
-# UI파일 위치를 잘 적어 넣어준다.
-form_class = uic.loadUiType("./myqt01.ui")[0]
+#UI파일 연결
+#단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
+form_class = uic.loadUiType("myqt01.ui")[0]
 
-# 프로그램 메인을 담당하는 Class 선언
-class MainClass(QMainWindow, form_class):
+#화면을 띄우는데 사용되는 Class 선언
+class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
-        QMainWindow.__init__(self)
-        # 연결한 Ui를 준비한다.
+        super().__init__()
         self.setupUi(self)
-        # 화면을 보여준다.
-        self.show()
+        #버튼에 기능을 연결하는 코드
+        self.pb.clicked.connect(self.pbFunction)
         
+    #pb가 눌리면 작동할 함수
+    def pbFunction(self) :
+        self.lbl.setText("Good Evening")
+
 if __name__ == "__main__" :
+    #QApplication : 프로그램을 실행시켜주는 클래스
     app = QApplication(sys.argv) 
-    window = MainClass() 
+
+    #WindowClass의 인스턴스 생성
+    myWindow = WindowClass() 
+
+    #프로그램 화면을 보여주는 코드
+    myWindow.show()
+
+    #프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
     app.exec_()
