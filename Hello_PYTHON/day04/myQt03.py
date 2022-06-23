@@ -19,15 +19,12 @@ class WindowClass(QMainWindow, form_class) :
         txt2 = self.qle2.text()
         num1 = int(txt1)
         num2 = int(txt2)
-        sum = num1 + num2
-        sumStr = str(sum)
+        sumNum = num1 + num2
+        sumStr = str(sumNum)
         self.qle3.setText(sumStr)
         
 if __name__ == "__main__" :
     app = QApplication(sys.argv) 
-
     myWindow = WindowClass() 
-
     myWindow.show()
-
     app.exec_()
