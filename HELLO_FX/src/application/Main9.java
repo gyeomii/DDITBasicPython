@@ -70,7 +70,7 @@ public class Main9 extends Application {
 	public void input(Event event){ 
 		Button temp = (Button) event.getSource(); 
 		tf.appendText(temp.getText()); 
-		}
+	}
 	
 	public void calling() {
 		Alert alert = new Alert(AlertType.INFORMATION);
