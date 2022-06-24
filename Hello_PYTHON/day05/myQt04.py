@@ -17,10 +17,12 @@ class WindowClass(QMainWindow, form_class) :
     def gugudan(self) :
         txt = self.qle.text()
         num = int(txt)
+        form = ""
         for i in range(1,10):
-            gugu = (num,"*",i,"=",num*i)
-             
-        self.pte.setText(gugu)
+            form += "%d * %d  = %d\n" %(num, i, num*i)
+            
+        self.pte.setPlainText(form)
+           
         
 if __name__ == "__main__" :
     app = QApplication(sys.argv) 

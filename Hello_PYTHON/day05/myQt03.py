@@ -20,8 +20,7 @@ class WindowClass(QMainWindow, form_class) :
         num1 = int(txt1)
         num2 = int(txt2)
         sumNum = num1 + num2
-        sumStr = str(sumNum)
-        self.qle3.setText(sumStr)
+        self.qle3.setText(str(sumNum))
         
 if __name__ == "__main__" :
     app = QApplication(sys.argv) 
