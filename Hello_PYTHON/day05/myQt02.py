@@ -18,7 +18,7 @@ class WindowClass(QMainWindow, form_class) :
     def increaseNum(self) :
         txt = self.qle.text()
         num = int(txt)
-        txt2 = str(num+1)
+        txt2 = str(num - 1)
         self.qle.setText(txt2)
         
 if __name__ == "__main__" :
