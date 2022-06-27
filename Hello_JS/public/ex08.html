@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Title</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+<style>
+    div{
+        text-align: center;
+    }
+</style>
+<title></title>
+</head>
+<body>
+<table border="1px">
+<tr>
+    <th>첫 별수</th>
+    <td>
+        <input type="text" id="it_first"/>
+    </td>
+</tr>
+<tr>
+    <th>끝 별수</th>
+    <td>
+        <input type="text" id="it_last"/>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <input type="button" id="btn" value="별 출력" style="width: 100%;">
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="height:150px;">
+        <div id="mydiv"></div>
+    </td>
+</tr>
+</table>
+<script>
+    document.querySelector('#btn').addEventListener('click',function(){
+        let first = parseInt(document.querySelector('#it_first').value);
+        let last = parseInt(document.querySelector('#it_last').value);
+
+        let result = "";
+        for(i=first; i<=last; i++){
+            for(j=1; j<=i; j++){
+                result += "*";
+            }
+            result += "<br>";
+        }
+        document.getElementById('mydiv').innerHTML = result;
+    })
+</script>
+</body>
+</html>

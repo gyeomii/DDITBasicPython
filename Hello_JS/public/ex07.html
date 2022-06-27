@@ -11,19 +11,19 @@
     <tr>
         <th>User</th>
         <td>
-            <input type="text" id="it_user"/>
+            <input type="text" id="itUser"/>
         </td>
     </tr>
     <tr>
         <th>COM</th>
         <td>
-            <input type="text" id="it_com"/>
+            <input type="text" id="itCom"/>
         </td>
     </tr>
     <tr>
         <th>Result</th>
         <td>
-            <input type="text" id="it_result"/>
+            <input type="text" id="itResult"/>
         </td>
     </tr>
     <tr>
@@ -34,21 +34,20 @@
 </table>
 <script>
     document.querySelector('.btn').addEventListener('click',function(){
-        let ranNum = Math.floor(Math.random()*2);
-        let comArr = ['홀', '짝'];
-
-        let user = document.getElementById('it_user').value;
+        let ranNum = Math.floor(Math.random()*3);
+        let comArr = ['가위', '바위', '보'];
+        let user = document.getElementById('itUser').value;
         let com = comArr[ranNum];
-
-        document.getElementById('it_com').value = com;
-
+        document.getElementById('itCom').value = com;
         let result="";
         if(user == com){
+            result += "비김";
+        }else if(user=='가위' && com =='보' || user=='바위' && com =='가위' || user=='보' && com =='바위'){
             result += "User 승리";
         }else{
             result += "COM 승리"
         }
-        document.getElementById('it_result').value = result;
+        document.getElementById('itResult').value = result;
     });
 </script>
 </body>

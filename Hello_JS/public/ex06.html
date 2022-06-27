@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Title</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<title></title>
+<style>
+    div{
+        width: 30px;
+    }
+</style>
+</head>
+<body>
+<table border=1>
+    <tr>
+        <td><div class="mydiv">__</div></td>
+        <td><div class="mydiv">__</div></td>
+        <td><div class="mydiv">__</div></td>
+        <td><div class="mydiv">__</div></td>
+        <td><div class="mydiv">__</div></td>
+        <td><div class="mydiv">__</div></td>
+    </tr>
+    <tr>
+        <td colspan="6">
+            <input type="button" id="btn" style="width:100%" value="로또생성">
+        </td>
+    </tr>
+</table>
+<script>
+    document.querySelector('#btn').addEventListener('click',function(){
+        let rottoNum = [];
+        for(let i=0; i<6; i++){
+            let num = Math.floor(Math.random() * 46) +1;
+            if(rottoNum.includes(num) == true){
+                i--;
+            }else{
+                rottoNum.push(num);
+            }
+        }
+        
+        rottoNum.sort(function compare(a,b){
+            return a - b;
+        });
+
+        for(let j=0; j<6; j++){
+            document.querySelectorAll('div')[j].innerHTML = rottoNum[j];
+        }
+    });
+</script>
+</body>
+</html>
