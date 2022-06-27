@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Title</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<title></title>
+<style>
+    .btn{
+        width: 100%;
+    }
+    #it{
+        width:90%;
+    }
+    #it{
+        text-align: right;
+    }
+</style>
+</head>
+<body>
+<pre>
+전화번호를 누르고 call버튼을 누르면 알림창 뜸
+</pre>
+<table border="1px">
+    <tr>
+        <td colspan="3">
+            <input type="text" id="it">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" class="btn" value="1">
+        </td>
+        <td>
+            <input type="button" class="btn" value="2">
+        </td>
+        <td>
+            <input type="button" class="btn" value="3">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" class="btn" value="4">
+        </td>
+        <td>
+            <input type="button" class="btn" value="5">
+        </td>
+        <td>
+            <input type="button" class="btn" value="6">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" class="btn" value="7">
+        </td>
+        <td>
+            <input type="button" class="btn" value="8">
+        </td>
+        <td>
+            <input type="button" class="btn" value="9">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" class="btn" value="0">
+        </td>
+        <td colspan="2">
+            <input type="button" class="btn" value="CALL" style="width:100%;">
+        </td>
+    </tr>
+</table>
+<script>
+    let objs = document.querySelectorAll('.btn');
+    let inputText = document.querySelector('#it');
+    for(let i=0; i<10; i++){
+        objs[i].addEventListener('click',function(){
+            let num = objs[i].value;
+            inputText.value += num
+        });
+    };
+    document.querySelectorAll('.btn')[10].addEventListener('click',function(){
+        alert("Calling to " + inputText.value);
+    });
+</script>
+</body>
+</html>
