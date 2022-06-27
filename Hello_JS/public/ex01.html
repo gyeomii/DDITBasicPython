@@ -4,21 +4,20 @@
 <meta charset="utf-8">
 <title>Page Title</title>
 <link rel="stylesheet" href="../css/outStyle.css">
-<style>
-    div{
-        width: 200px;
-        height: 30px;
-    }
-</style>
 <title></title>
 </head>
 <body>
-    <div id="mydiv">good morning</div>
+    <pre>
+        button을 누르면 good morning 이 good evening으로 변경하도록 한다.
+    </pre>
+    <div id="mydiv">Good Morning</div>
+    <br>
     <input type="button" value="click" onclick="goodEve()"/>
 <script>
     function goodEve(){
-        let result = 'good evening'
-        document.getElementById('mydiv').innerHTML=result;
+        let result = 'Good Evening'
+        let obj = document.getElementById('mydiv');
+        obj.innerHTML= result;
     }        
 </script>
 </body>

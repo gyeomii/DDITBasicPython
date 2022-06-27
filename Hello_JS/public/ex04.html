@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Title</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<title></title>
+</head>
+<body>
+    <pre>
+        input text에 원하는 구구단의 단수를 입력하고 출력버튼을 누르면 빈 칸에 구구단이 출력된다. 
+    </pre>
+<table border="1px">
+    <tr>
+        <th>출력 단수</th>
+        <th>
+            <input type="text" id="it" style="width:80px"/>
+        </th>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="button" id="btn" value="출력" style="width:100%"></td>
+    </tr>
+    <tr>
+        <td colspan="2" id="mytd" style="height: 200px">
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<script>
+    document.querySelector('#btn').addEventListener('click',function(){
+        let dan = parseInt(document.querySelector('#it').value);
+        let result="";
+        for(i=1; i<10; i++){
+            result += `${dan} * ${i} = ${dan*i} <br>`;
+        }
+        document.querySelectorAll('td')[1].innerHTML = result;
+    });
+</script>
+</body>
+</html>
