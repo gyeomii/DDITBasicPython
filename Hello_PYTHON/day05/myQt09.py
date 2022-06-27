@@ -10,7 +10,7 @@ from PyQt5 import uic
 # UI파일 연결
 form_class = uic.loadUiType("myQt09.ui")[0]
 
-
+ 
 # 화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class):
 
@@ -41,7 +41,7 @@ class WindowClass(QMainWindow, form_class):
                 txt = self.qle.text()
                 txt += pb.text()
                 self.qle.setText(txt)
-                
+    
     def call(self):
         QMessageBox.about(self, 'MyQt09 Calling alert', "Calling to %s"%(self.qle.text()))
 
