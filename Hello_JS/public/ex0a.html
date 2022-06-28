@@ -24,10 +24,13 @@ document.getElementById("ib").addEventListener('click',function(){
 	let AVal = document.getElementById('it_a').value;
 	let BVal = document.getElementById('it_b').value;
 	let CVal = document.getElementById('it_c').value;
+	let numA = parseInt(AVal);
+	let numB = parseInt(BVal);
+	let numC = parseInt(CVal);
 	let inputD = document.getElementById('it_d');
 	let result =0;
-	for(let i = AVal; i <= BVal; i++){
-		if(i % CVal == 0){
+	for(let i = numA; i <= numB; i++){
+		if(i % numC == 0){
 			result += i;
 		}
 	}
