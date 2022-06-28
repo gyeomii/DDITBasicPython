@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- bootstrap lib -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="main.css">
+    <title>Hello, world!</title>
+
+    <!-- JQuery lib -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <div class="black-bg" id="loginWindow">
+        <div class="white-bg">
+            <h4>로그인하세요(이메일형식)</h4>
+            <form action="success.html">
+                <div class="my-3">
+                    <input type="text" class="form-control" id="idtext">
+                </div>
+                <div class="my-3">
+                    <input type="password" class="form-control" id="pwtext">
+                </div>
+                <button type="submit" class="btn btn-primary" id="send">전송</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">JSShop</span>
+            <span class="badge bg-dark">Dark 🔄</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="progress"></div>
+        </div>
+    </nav>
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div class="lorem" style="width:  200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+        Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div style="height: 1000px;">
+
+    </div>
+    <script>
+
+        document.querySelector('.black-bg').addEventListener('click', function (e) {
+            // e.target; // 유저가 실제로 누른것
+            // e.currentTarget; // 이벤트리스너 달린 곳
+            // this; // 위와 같음
+            // e.preventDefault; // 이벤트 발생 캔슬의 개념
+            // e.stopPropagation; // 내 상위 요소로 이벤트 버블링 막아줌 */
+            if (e.target == document.querySelector('.black-bg')) {
+                document.querySelector('.black-bg').classList.remove('show-modal');
+            }
+        });
+
+        $('.black-bg').on('click', function (e) {
+            if (e.target == document.querySelector('.black-bg')) {
+                $('.black-bg').removeClass('show-modal');
+            }
+        });
+
+        // 스크롤을 다 내렸을 때 알람창 띄우기
+
+        // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
+        $('.lorem').on('scroll', function () {
+            let lorem = document.querySelector('.lorem');
+            var scrollVelue = lorem.scrollTop;
+            var scrollHeightVelue = lorem.scrollHeight;
+            var scrollRealHeight = lorem.clientHeight;
+
+            console.log(scrollVelue, scrollRealHeight, scrollHeightVelue);
+            if (scrollVelue + scrollRealHeight == scrollHeightVelue) {
+                alert("다봤슈?");
+
+            }
+
+
+        });
+    </script>
+
+    <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
+
+    <div style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="silide-box">
+                <img src="car1.png">
+            </div>
+            <div class="silide-box">
+                <img src="car2.png">
+            </div>
+            <div class="silide-box">
+                <img src="car3.png">
+            </div>
+        </div>
+    </div>
+    <button class="silde-1">1</button>
+    <button class="silde-2">2</button>
+    <button class="silde-3">3</button>
+    <button class="next">다음</button>
+    <button class="before">이전</button>
+
+    <script>
+
+        $(window).on('scroll', function () {
+            var currentPercentage = ($(window).scrollTop() / ($(document).outerHeight() - $(window).height())) * 100;
+            $('.progress').width(currentPercentage + '%');
+        });
+
+        /*         window.addEventListener('scroll', function () {
+                    console.log(window.scrollY);
+                }); */
+
+        $(window).on('scroll', function () {
+            /*            $(window).scrollTop(100); */
+            if (window.pageYOffset > 100) {
+                $('.navbar-brand').css('font-size', '15px');
+            }
+            if (window.pageYOffset < 100) {
+                $('.navbar-brand').css('font-size', '30px');
+            }
+
+        });
+
+        var picCount = 0;
+        $('.next').on('click', function () {
+            if (picCount == 2) {
+                $('.slide-container').css('transform', 'translateX(0vw)');
+                picCount = 0;
+            } else {
+                picCount++;
+                $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
+            }
+        });
+
+        $('.before').on('click', function () {
+            if (picCount == 0) {
+                picCount = 2;
+                $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
+            } else {
+                picCount--;
+                $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
+            }
+        });
+
+        $('.silde-1').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(0vw)');
+            picCount = 0;
+        });
+
+        $('.silde-2').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            picCount = 1;
+        });
+
+        $('.silde-3').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+            picCount = 2
+        });
+
+        let countt = 5;
+        setInterval(function () {
+            document.getElementsByClassName('alert')[0].innerHTML = countt + "초 이내 구매시 사은품 증정!";
+            countt--;
+            if (countt < 0) {
+                $('.alert').hide();
+            }
+        }, 1000);
+
+        /* addEventListener(안녕); */
+
+        /*      setInterval(function () { $('.alert').hide(); }, 1000); */
+        /* setInterval(안녕, 1000); */
+        /*
+                function 안녕() {
+                    console.log('안녕');
+                } */
+
+        // 정규식
+
+        /* console.log(/[a-z]/.test('abc'));
+        console.log(/[A-Z]/.test('abc'));
+        console.log(/[ㄱ-ㅎ가-힣]/.test('예ㄹ'));
+        console.log(/[ㅏ-ㅣ]/.test('ㅗㅠ'));
+        console.log(/\S/.test('0')); // 특수기호 포함 */
+
+
+        /* console.log(/^a/.test('abc'));
+        console.log(/c$/.test('abc'));
+        console.log(/a|b/.test('abc'));
+        console.log(/a&d/.test('abc')); */
+
+        console.log(/\S+@\S+\.\S+/.test('aaa@bbb.ccc'));
+
+
+        document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function () {
+            document.getElementsByClassName('list-group')[0].classList.toggle('show');
+        });
+
+
+        $('#login').on('click', function () {
+            $('.black-bg').addClass('show-modal');
+        });
+        $('#close').on('click', function () {
+            $('.black-bg').removeClass('show-modal');
+        });
+        document.querySelector('form').addEventListener('submit', function (e) {
+
+            let id = document.getElementById('idtext').value;
+            let pw = document.getElementById('pwtext').value;
+
+            if (id == '' && pw == '') {
+                alert('아이디와 비밀번호를 입력하세요.')
+                e.preventDefault();
+            } else {
+                if (id == '') {
+                    alert('아이디를 입력하세요.');
+                    e.preventDefault();
+                }
+                if (!/\S+@\S+.\S+/.test(id)) {
+                    alert('이메일 형식이 아닙니다.');
+                    e.preventDefault();
+                }
+                if (/[A-Z]/.test(pw)) {
+                    alert('비밀번호에 알파벳 대문자는 사용할 수 없습니다.')
+                    e.preventDefault();
+                }
+                if (pw.length < 6) {
+                    if (pw == '') {
+                        alert('비밀번호를 입력하세요.');
+                        e.preventDefault();
+                    } else {
+                        alert('비밀번호를 6자리 이상 입력하여 주세요.')
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+
+        var count = 0;
+
+        $('.badge').on('click', function () {
+            count += 1;
+            if (count % 2 == 1) {
+                document.getElementsByClassName('badge')[0].innerHTML = "Light 🔄";
+                $('.navbar').addClass('navbar-dark bg-dark');
+                $('body').addClass('dark');
+                $('.badge').removeClass('bg-dark');
+                $('.badge').addClass('white');
+                console.log(count)
+            } else {
+                document.getElementsByClassName('badge')[0].innerHTML = "Dark 🔄";
+                $('.navbar').removeClass('navbar-dark bg-dark');
+                $('body').removeClass('dark');
+                $('.badge').removeClass('white');
+                $('.badge').addClass('bg-dark');
+                console.log(count)
+            }
+
+
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>

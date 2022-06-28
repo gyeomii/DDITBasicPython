@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/outStyle.css">
+<style>
+ input[type=text]{
+ 	width : 70px;
+ }
+</style>
+</head>
+<body>
+<pre>
+	ex) 1 에서 10 까지 5의 배수의 합은 5 + 10이므로 15를 출력
+</pre>
+<input type="text" id="it_a"/>에서
+<input type="text" id="it_b"/>까지
+<input type="text" id="it_c"/>
+<input type="button" value="의 배수의 합은" id="ib"/>
+<input type="text" id="it_d"/>
+<script>
+document.getElementById("ib").addEventListener('click',function(){
+	let AVal = document.getElementById('it_a').value;
+	let BVal = document.getElementById('it_b').value;
+	let CVal = document.getElementById('it_c').value;
+	let inputD = document.getElementById('it_d');
+	let result =0;
+	for(let i = AVal; i <= BVal; i++){
+		if(i % CVal == 0){
+			result += i;
+		}
+	}
+	inputD.value = result;
+});
+</script>
+</body>
+</html>

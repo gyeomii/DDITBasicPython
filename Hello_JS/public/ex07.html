@@ -36,7 +36,10 @@
     </tr>
 </table>
 <script>
-    document.querySelector('.btn').addEventListener('click',function(){
+  //  document.querySelector('.btn').addEventListener('click',function(){
+    document.querySelector('#itUser').addEventListener('keyup',function(e){
+    	if(e.keyCode === 13){
+    		
         let ranNum = Math.floor(Math.random()*3);
         let comArr = ['가위', '바위', '보'];
         let user = document.getElementById('itUser').value;
@@ -51,6 +54,7 @@
             result += "COM 승리"
         }
         document.getElementById('itResult').value = result;
+    	}
     });
 </script>
 </body>
