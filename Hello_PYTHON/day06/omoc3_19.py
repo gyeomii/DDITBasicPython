@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
-form_class = uic.loadUiType("omoc02.ui")[0]
+form_class = uic.loadUiType("omoc03.ui")[0]
 
 #화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class) :
@@ -20,23 +20,35 @@ class WindowClass(QMainWindow, form_class) :
         self.pbRst.clicked.connect(self.resetGame)
         #core
         self.arr2D = [
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0],
-                                     ]
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0]
+            ]
         
         self.pb2D = []
         
-        for i in range(10):
+        for i in range(19):
             line = []
-            for j in range(10):
+            for j in range(19):
                 btn = QPushButton('', self)
                 btn.setIcon(QIcon("0.png"))
                 # (10,10)을 영점으로 계속 버튼 추가
@@ -51,8 +63,8 @@ class WindowClass(QMainWindow, form_class) :
         self.myRender()
                 
     def myRender(self):
-        for i in range(10):
-            for j in range(10):
+        for i in range(19):
+            for j in range(19):
                 if(self.arr2D[i][j] == 0):
                     self.pb2D[i][j].setIcon(QIcon("0.png"))
                 if(self.arr2D[i][j] == 1):
@@ -256,9 +268,9 @@ class WindowClass(QMainWindow, form_class) :
     """ 게임 리셋 """
     def resetGame(self):
         self.arr2D = []
-        for i in range(10):
+        for i in range(19):
             line = []
-            for j in range(10):
+            for j in range(19):
                 line.append(0)
                 
             self.arr2D.append(line)
