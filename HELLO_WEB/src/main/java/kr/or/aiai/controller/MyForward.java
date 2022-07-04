@@ -38,7 +38,6 @@ public class MyForward extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/myforward.jsp");
 		rd.forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
