@@ -38,4 +38,8 @@ public class EmpVO {
 		this.addr = addr;
 	}
 
+	@Override
+	public String toString() {
+		return "EmpVO [e_id=" + e_id + ", e_name=" + e_name + ", sex=" + sex + ", addr=" + addr + "]";
+	}
 }
