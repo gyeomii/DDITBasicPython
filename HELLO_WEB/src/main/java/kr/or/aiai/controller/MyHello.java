@@ -20,7 +20,12 @@ public class MyHello extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		out.println("Hello Servlet");
+		
+		String a = "";
+		
+		a = request.getParameter("a");
+		
+		out.println("Hello Servlet : a = " + a);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

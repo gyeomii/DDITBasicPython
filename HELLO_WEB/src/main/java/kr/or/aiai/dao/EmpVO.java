@@ -6,6 +6,17 @@ public class EmpVO {
 	private String sex = "";
 	private String addr = "";
 
+	public EmpVO(String e_id, String e_name, String sex, String addr) {
+		this.e_id = e_id;
+		this.e_name = e_name;
+		this.sex = sex;
+		this.addr = addr;
+	}
+
+	public EmpVO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getE_id() {
 		return e_id;
 	}
