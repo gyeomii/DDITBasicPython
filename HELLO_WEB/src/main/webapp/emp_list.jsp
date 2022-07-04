@@ -1,4 +1,3 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="kr.or.aiai.dao.EmpVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,11 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-myforward
 <%
-	String a = (String) request.getAttribute("a");
-	out.println(a);
-	
 	ArrayList<EmpVO> list = (ArrayList<EmpVO>) request.getAttribute("list");
 %>
 <table border="1px">
@@ -33,6 +28,5 @@ myforward
 		<td><%=temp.getAddr()%></td>
 	</tr>
 <%}%>
-</table>
 </body>
 </html>
