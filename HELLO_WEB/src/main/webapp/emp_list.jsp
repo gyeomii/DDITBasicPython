@@ -6,6 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- BS CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -34,6 +39,8 @@
 		<%
 		}
 		%>
-	
+		</table>
+<input type="button" id="add" value="추가" onclick="location.href='./emp_add.jsp'"/>
+
 </body>
 </html>
