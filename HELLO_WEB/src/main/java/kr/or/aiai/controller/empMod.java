@@ -23,18 +23,23 @@ public class empMod extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		String e_id = request.getParameter("e_id");
 		DaoEmp de = new DaoEmp();
-		EmpVO vo = null;
-
+		EmpVO vo = (EmpVO) request.getAttribute("pvo");
+		int cnt = 0;
 		try {
-			vo = de.getOne(e_id);
-			request.setAttribute("vo", vo);
+			cnt = de.insertEmp(vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		RequestDispatcher rd = request.getRequestDispatcher("/emp_detail.jsp");
+		String msg = "";
+		if(cnt > 0) {
+			msg += "데이터 수정 성공";
+		}else {
+			msg += "데이터 수정 성공";
+			
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/emp_mod_acts.jsp");
 		rd.forward(request, response);
 	}
 
