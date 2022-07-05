@@ -22,6 +22,10 @@ function fn_mod(){
 	location.href = "emp_mod?e_id=<%=vo.getE_id()%>";
 }
 function fn_del(){
+	var flag = confirm("한번 지워진 데이터는 복구가 불가합니다.\n 삭제하시겠습니까?");
+	if(!flag){
+		return;
+	}
 	location.href = "emp_del?e_id=<%=vo.getE_id()%>";
 }
 
