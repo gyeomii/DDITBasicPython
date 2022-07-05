@@ -8,7 +8,7 @@ def home():
     return 'Hello, Flask!'
 
 
-@app.route('/para')
+@app.route('/para') 
 def user():
     parameter_dict = request.args.to_dict()
     if len(parameter_dict) == 0:
