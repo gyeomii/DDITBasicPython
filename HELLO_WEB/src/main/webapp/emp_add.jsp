@@ -21,9 +21,9 @@ form {
 </style>
 </head>
 <body>
-	<form action="emp_add_acts" method="post" class="form-inline col-md-6">
-		<div class="form-group col-md-6">
-			<table class="table table-borderedcol-md-6">
+	<form action="emp_add_acts" method="post" class="col-md-9">
+		<div class="form-group col-md-9">
+			<table class="table table-bordered col-md-9">
 				<tr>
 					<th>사번</th>
 					<td><input type="text" class="form-control" name="e_id" /></td>

@@ -20,7 +20,7 @@ EmpVO vo = (EmpVO) request.getAttribute("vo");
 </head>
 <body>
 
-	<form action="emp_mod_acts" method="post" class="form-inline col-md-6">
+	<form action="emp_mod_acts" method="post" class="form-inline col-md-9">
 		<div class="form-group col-md-6">
 			<table class="table table-borderedcol-md-6">
 				<tr>

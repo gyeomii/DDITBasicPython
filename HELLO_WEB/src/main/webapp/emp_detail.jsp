@@ -36,7 +36,7 @@ text-align: center;
 </head>
 <body>
 
-	<div class="col-md-6">
+	<div class="col-md-9">
 	<table class="table table-bordered">
 		<tr>
 			<th>사번</th>
