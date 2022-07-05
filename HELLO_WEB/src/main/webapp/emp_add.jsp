@@ -21,15 +21,7 @@ form {
 </style>
 </head>
 <body>
-	<%
-	String msg = (String) request.getAttribute("msg");
-	if (msg == null) {
-		msg = "";
-	} else {
-		msg = (String) request.getAttribute("msg");
-	}
-	%>
-	<form action="emp_add" class="form-inline col-md-6">
+	<form action="emp_add_acts" method="post" class="form-inline col-md-6">
 		<div class="form-group col-md-6">
 			<table class="table table-borderedcol-md-6">
 				<tr>
@@ -49,9 +41,7 @@ form {
 					<td><input type="text" class="form-control" name="addr" /></td>
 				</tr>
 			</table>
-			<input type="submit" class="btn btn-primary" value="실행">
-			<p><%=msg%></p>
-			<input type="button" class="btn btn-success" value="목록" onclick="location.href='emp_list'">
+			<input type="submit" class="btn btn-primary" value="추가">
 		</div>
 	</form>
 </body>

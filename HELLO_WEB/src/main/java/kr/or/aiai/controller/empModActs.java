@@ -12,33 +12,42 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.aiai.dao.DaoEmp;
 import kr.or.aiai.dao.EmpVO;
 
-@WebServlet("/emp_del")
-public class empDel extends HttpServlet {
+@WebServlet("/emp_mod_acts")
+public class empModActs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public empDel() {
+    public empModActs() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
 		String e_id = request.getParameter("e_id");
-		DaoEmp de = new DaoEmp();
+		String e_name = request.getParameter("e_name");
+		String sex = request.getParameter("sex");
+		String addr = request.getParameter("addr");
 		
+		System.out.println("e_id:"+e_id);
+		System.out.println("e_name:"+e_name);
+		System.out.println("sex:"+sex);
+		System.out.println("addr:"+addr);
+		
+		DaoEmp de = new DaoEmp();
 		int cnt = -1;
 		try {
-			cnt = de.deleteEmp(e_id);
-			request.setAttribute("cnt", cnt);
+			cnt = de.updateEmp(new EmpVO(e_id, e_name, sex, addr));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		RequestDispatcher rd = request.getRequestDispatcher("/emp_del.jsp");
-		rd.forward(request, response);
+		request.setAttribute("cnt", cnt); 
+		System.out.println("cnt:"+cnt);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/emp_mod_acts.jsp");
+		rd.forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

@@ -23,7 +23,7 @@ text-align: center;
 	<%
 	ArrayList<EmpVO> list = (ArrayList<EmpVO>) request.getAttribute("list");
 	%>
-	<div class="col-md-6">
+	<div>
 	<table class='table table-bordered'>
 		<tr>
 			<th>사번</th>
