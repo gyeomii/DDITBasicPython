@@ -23,7 +23,6 @@ def add():
 
 @app.route('/emp_add_acts', methods = ['POST', 'GET']) 
 def addActs():
-    e_id = request.form['e_id']
     e_name = request.form['e_name']
     sex = request.form['sex']
     addr = request.form['addr']
