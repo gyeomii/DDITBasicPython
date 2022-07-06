@@ -11,7 +11,8 @@ def home():
 @app.route('/forward', methods = ['POST', 'GET']) 
 def user():
     a = 999
-    return render_template('myflask03.html', variable = a)
+    list = [['1','1','1','1'],['2','2','2','2']]
+    return render_template('myflask03.html', variable = a, list = list)
 
 if __name__ == '__main__':
     app.run(debug=True)
