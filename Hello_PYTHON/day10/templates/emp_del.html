@@ -14,12 +14,12 @@ function fn_list(){
 }
 </script>
 <body>
-<h1>Emp Add</h1>
-<div class="form-group col-md-9">
+<h1>Emp Del</h1>
+<div class="col-md-9">
 {% if cnt > 0 %}
-{{cnt}}개의 데이터가 추가 되었습니다.
+{{cnt}}개의 데이터가 삭제 되었습니다.
 {% else %}
-데이터 추가 실패
+데이터 삭제 실패
 {%endif%}
 </div><br>
 <input type="button" class="btn btn-success" value="목록" onclick="fn_list()">

@@ -16,7 +16,7 @@ class EmpDao:
     def select(self, e_id):
         sql = f"""
             select e_id, e_name, sex, addr 
-            from emp
+            from emp 
             where e_id={e_id}
         """
         self.cur.execute(sql)
@@ -35,9 +35,9 @@ class EmpDao:
     
     def update(self, e_id, e_name, sex, addr):
         sql = f"""
-            Update emp 
-            set e_name='{e_name}', sex='{sex}', addr='{addr}' 
-            where e_id={e_id}
+             Update emp 
+             set e_name='{e_name}', sex='{sex}', addr='{addr}' 
+             where e_id = {e_id}
         """
         cnt= self.cur.execute(sql)
         self.conn.commit()
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     dao = EmpDao()
   # list = dao.selects()
   # emp = dao.select('1')
-    cnt = dao.insert("홍길동", 1, "대전광역시")
+  # cnt = dao.insert("홍길동", 1, "대전광역시")
   # cnt = dao.update(4, "4", 1, "4")
   # cnt = dao.delete(4)
-    print(cnt, "개의 데이터가 추가되었습니다.")
+  # print(cnt, "개의 데이터가 추가되었습니다.")
