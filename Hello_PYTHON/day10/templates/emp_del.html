@@ -9,19 +9,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <script>
-function fn_list(){
+var cnt = {{cnt}};
+
+if(cnt == 1){
+	alert("정상적으로 삭제되었습니다.")
 	location.href="emp_list";
+}else{
+	history.go(-1);
 }
 </script>
 <body>
-<h1>Emp Del</h1>
-<div class="col-md-9">
-{% if cnt > 0 %}
-{{cnt}}개의 데이터가 삭제 되었습니다.
-{% else %}
-데이터 삭제 실패
-{%endif%}
-</div><br>
-<input type="button" class="btn btn-success" value="목록" onclick="fn_list()">
 </body>
 </html>
