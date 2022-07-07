@@ -47,12 +47,12 @@ def modActs():
     cnt = dao.update(e_id, e_name, sex, addr)
     return render_template('emp_mod_acts.html', cnt = cnt)
 
-@app.route('/emp_del', methods = ['POST', 'GET'])
+@app.route('/emp_del_acts', methods = ['POST', 'GET'])
 def emp_del():
     e_id = request.args.get('e_id')
     dao = EmpDao()
     cnt = dao.delete(e_id)
-    return render_template('emp_del.html', cnt = cnt)
+    return render_template('emp_del_acts.html', cnt = cnt)
 
 if __name__ == '__main__':
     app.run(debug=True)
