@@ -1,4 +1,4 @@
-package kr.or.aiai.dao;
+package kr.co.aiai.dao;
 
 public class EmpVO {
 	private String e_id = "";

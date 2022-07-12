@@ -1,4 +1,4 @@
-package kr.or.aiai.dao;
+package kr.co.aiai.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -120,13 +120,12 @@ public class DaoEmp {
 
 		conn = DriverManager.getConnection(url, user, pw);
 
-		String sql = "Insert into emp values(?,?,?,?)";
+		String sql = "Insert into emp (e_name, sex, addr) values (?,?,?)";
 
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, vo.getE_id());
-		pstmt.setString(2, vo.getE_name());
-		pstmt.setString(3, vo.getSex());
-		pstmt.setString(4, vo.getAddr());
+		pstmt.setString(1, vo.getE_name());
+		pstmt.setString(2, vo.getSex());
+		pstmt.setString(3, vo.getAddr());
 
 		int cnt = pstmt.executeUpdate();
 

@@ -30,7 +30,7 @@ function fn_list() {
 				var addr = list[i].addr;
 				html += `
 				<tr>
-					<td>`+ e_id +`</td>
+					<td><a href="javascript:fn_one('`+e_id+`')">`+ e_id +`</a></td>
 					<td>`+ e_name +`</td>
 					<td>`+ sex +`</td>
 					<td>`+ addr +`</td>
@@ -41,9 +41,63 @@ function fn_list() {
 		}
 	});
 }
+
+function fn_one(e_id){
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&e_id=" + e_id;
+	$.ajax({
+		url : "ajaxone",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		success : function(res) {
+			var vo = res;
+			$('#e_id').val(vo.e_id);
+			$('#e_name').val(vo.e_name);
+			$('#sex').val(vo.sex);
+			$('#addr').val(vo.addr); 
+		}
+	});
+}
+
+function fn_add(){
+	var e_name = $('#e_name').val();
+	var sex = $('#sex').val();
+	var addr = $('#addr').val();
+	
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&e_name=" + e_name;
+	param += "&sex=" + sex;
+	param += "&addr=" + addr;
+	$.ajax({
+		url : "ajaxadd",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		success : function(res) {
+			var cnt = res.cnt;
+			if(cnt == 1){
+				alert("정상적으로 추가 되었습니다.");
+				fn_list();
+				$('#e_name').val("");
+				$('#sex').val("");
+				$('#addr').val("");
+			}else{
+				alert("추가 실패하였습니다.");
+			}
+		}
+	});
+}
 </script>
 </head>
 <body onload="fn_list()">
+<div class="container">
+	<h1>Emp Control</h1>
+</div>
 <div class="container">
 <table class="table table-bordered">
 	<thead>
@@ -69,7 +123,7 @@ function fn_list() {
 	<tr>
 		<td>사번</td>
 		<td>
-			<input type="text" id="e_id" class="form-control" />
+			<input type="text" id="e_id" class="form-control" readonly placeholder="사번은 자동 생성됩니다."/>
 		</td>
 	</tr>
 	<tr>
@@ -92,9 +146,9 @@ function fn_list() {
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="button" value="추가" class="btn btn-primary"/>
-			<input type="button" value="수정" class="btn btn-warning"/>
-			<input type="button" value="삭제" class="btn btn-danger"/>
+			<input type="button" value="추가" class="btn btn-primary" onclick="fn_add()"/>
+			<input type="button" value="수정" class="btn btn-warning" onclick="fn_mod()"/>
+			<input type="button" value="삭제" class="btn btn-danger" onclick="fn_del()"/>
 		</td>
 	</tr>
 </table>

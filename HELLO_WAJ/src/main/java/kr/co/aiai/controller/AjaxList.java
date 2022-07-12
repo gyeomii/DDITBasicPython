@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.aiai.dao.DaoEmp;
+import kr.co.aiai.dao.EmpVO;
 import kr.co.aiai.util.AjaxUtil;
-import kr.or.aiai.dao.DaoEmp;
-import kr.or.aiai.dao.EmpVO;
 
 @WebServlet("/ajaxlist")
 public class AjaxList extends HttpServlet {
