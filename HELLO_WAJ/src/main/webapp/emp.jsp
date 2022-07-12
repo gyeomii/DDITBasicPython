@@ -92,6 +92,68 @@ function fn_add(){
 		}
 	});
 }
+
+function fn_mod(){
+	var e_id = $('#e_id').val();
+	var e_name = $('#e_name').val();
+	var sex = $('#sex').val();
+	var addr = $('#addr').val();
+	
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&e_id=" + e_id;
+	param += "&e_name=" + e_name;
+	param += "&sex=" + sex;
+	param += "&addr=" + addr;
+	$.ajax({
+		url : "ajaxmod",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		success : function(res) {
+			var cnt = res.cnt;
+			if(cnt == 1){
+				alert("정상적으로 수정 되었습니다.");
+				fn_list();
+				$('#e_id').val("");
+				$('#e_name').val("");
+				$('#sex').val("");
+				$('#addr').val("");
+			}else{
+				alert("수정 실패하였습니다.");
+			}
+		}
+	});
+}
+
+function fn_del(){
+	var e_id = $('#e_id').val();
+	
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&e_id=" + e_id;
+	$.ajax({
+		url : "ajaxdel",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		success : function(res) {
+			var cnt = res.cnt;
+			if(cnt == 1){
+				alert("정상적으로 삭제 되었습니다.");
+				fn_list();
+				$('#e_id').val("");
+				$('#e_name').val("");
+				$('#sex').val("");
+				$('#addr').val("");
+			}else{
+				alert("삭제 실패하였습니다.");
+			}
+		}
+	});
+}
 </script>
 </head>
 <body onload="fn_list()">
