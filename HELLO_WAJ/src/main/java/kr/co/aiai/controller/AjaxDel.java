@@ -13,7 +13,7 @@ import kr.co.aiai.util.AjaxUtil;
 import kr.co.aiai.dao.DaoEmp;
 import kr.co.aiai.dao.EmpVO;
 
-@WebServlet("/ajaxmod")
+@WebServlet("/ajaxdel")
 public class AjaxDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
