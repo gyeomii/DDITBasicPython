@@ -8,8 +8,9 @@ response = requests.get(url)
 if response.status_code == 200:
     html = response.content.decode('euc-kr','replace')
     soup = BeautifulSoup(html, 'html.parser')
-    table = soup.select('table')
-    print(table)
+    trArr = soup.select('tr')
+    td = trArr[0].select('td')
+    print(td[0].text)
 
 else : 
     print(response.status_code)
