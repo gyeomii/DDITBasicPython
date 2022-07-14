@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from day14.stockdao import StockDao
+import pandas as pd
 
 sd = StockDao()
 
@@ -55,9 +56,12 @@ ax.plot(x1, y1, samPriceList,'r')
 ax.plot(x2, y2, lgPriceList,'g')
 ax.plot(x3, y3, skPriceList,'b')
 
+legend = plt.legend(["samsung", "sk", "lg"])
+legend.set_title("Stock", prop = {'size':15})
+
 # ax.set_xlim3d(-1, 3)
 # ax.set_ylim3d(0, 30)
-# ax.set_zlim3d(50000, 200000)
+# ax.set_zlim3d(50000, 10000000)
 
 plt.show()
 
