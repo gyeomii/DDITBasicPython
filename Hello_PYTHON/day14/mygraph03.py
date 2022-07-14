@@ -1,13 +1,7 @@
 import matplotlib.pyplot as plt
-import mpl_toolkits.mplot3d.axes3d as axes3d
-from day14 import stockdao
 from day14.stockdao import StockDao
 
 sd = StockDao()
-
-
-
-
 
 samsung = sd.select("삼성전자")
 sk = sd.select("SK")
@@ -44,7 +38,6 @@ for idx, i in enumerate(lg):
     x2.append(1)
     y2.append(idx)
     
-
 for idx, i in enumerate(sk):
     firstPrice = sk[0].get('price')
     price = i.get('price')
@@ -61,6 +54,10 @@ ax = fig.add_subplot(1,1,1, projection='3d')
 ax.plot(x1, y1, samPriceList,'r')
 ax.plot(x2, y2, lgPriceList,'g')
 ax.plot(x3, y3, skPriceList,'b')
+
+# ax.set_xlim3d(-1, 3)
+# ax.set_ylim3d(0, 30)
+# ax.set_zlim3d(50000, 200000)
 
 plt.show()
 
