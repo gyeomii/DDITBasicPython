@@ -49,11 +49,14 @@ for idx, i in enumerate(sk):
 
 fig = plt.figure()
 
-ax = fig.add_subplot(1,1,1, projection='3d')       
+axes = fig.add_subplot(1,1,1, projection='3d')       
 
-ax.plot(x1, y1, samPriceList,'r')
-ax.plot(x2, y2, lgPriceList,'g')
-ax.plot(x3, y3, skPriceList,'b')
+axes.plot(x1, y1, samPriceList,'r')
+axes.plot(x2, y2, lgPriceList,'g')
+axes.plot(x3, y3, skPriceList,'b')
+axes.set_xlabel("category")
+axes.set_ylabel("1min")
+axes.set_zlabel("differ gap")
 
 legend = plt.legend(["samsung", "sk", "lg"])
 legend.set_title("Stock", prop = {'size':15})
