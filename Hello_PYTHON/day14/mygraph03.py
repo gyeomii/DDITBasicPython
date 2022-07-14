@@ -28,8 +28,9 @@ y3 = []
 for idx, i in enumerate(samsung):
     firstPrice = samsung[0].get('price')
     price = i.get('price')
-    per = price/firstPrice*100
-    samPriceList.append(per)
+    gap = price - firstPrice
+    percent = gap/firstPrice*100
+    samPriceList.append(percent)
     x1.append(0)
     y1.append(idx)
     
@@ -37,8 +38,9 @@ for idx, i in enumerate(samsung):
 for idx, i in enumerate(lg):
     firstPrice = lg[0].get('price')
     price = i.get('price')
-    per = price/firstPrice*100
-    lgPriceList.append(per)
+    gap = price - firstPrice
+    percent = gap/firstPrice*100
+    lgPriceList.append(percent)
     x2.append(1)
     y2.append(idx)
     
@@ -46,8 +48,9 @@ for idx, i in enumerate(lg):
 for idx, i in enumerate(sk):
     firstPrice = sk[0].get('price')
     price = i.get('price')
-    per = price/firstPrice*100
-    skPriceList.append(per)
+    gap = price - firstPrice
+    percent = gap/firstPrice*100
+    skPriceList.append(percent)
     x3.append(2)
     y3.append(idx)
 
