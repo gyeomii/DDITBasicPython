@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 from day14.stockdao import StockDao
-import pandas as pd
 
 sd = StockDao()
 
