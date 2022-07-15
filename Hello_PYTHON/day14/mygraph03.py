@@ -19,28 +19,24 @@ y1 = []
 y2 = []
 y3 = []
 
-for idx, i in enumerate(samsung):
-    firstPrice = samsung[0].get('price')
-    price = i.get('price')
+for idx, price in enumerate(samsung):
+    firstPrice = samsung[0]
     gap = price - firstPrice
     percent = gap/firstPrice*100
     samPriceList.append(percent)
     x1.append(0)
     y1.append(idx)
-    
 
-for idx, i in enumerate(lg):
-    firstPrice = lg[0].get('price')
-    price = i.get('price')
+for idx, price in enumerate(lg):
+    firstPrice = lg[0]
     gap = price - firstPrice
     percent = gap/firstPrice*100
     lgPriceList.append(percent)
     x2.append(1)
     y2.append(idx)
     
-for idx, i in enumerate(sk):
-    firstPrice = sk[0].get('price')
-    price = i.get('price')
+for idx, price in enumerate(sk):
+    firstPrice = sk[0]
     gap = price - firstPrice
     percent = gap/firstPrice*100
     skPriceList.append(percent)
@@ -55,8 +51,8 @@ axes.plot(x1, y1, samPriceList,'r')
 axes.plot(x2, y2, lgPriceList,'g')
 axes.plot(x3, y3, skPriceList,'b')
 axes.set_xlabel("category")
-axes.set_ylabel("1min")
-axes.set_zlabel("differ gap")
+axes.set_ylabel("min")
+axes.set_zlabel("differ gap(%)")
 
 legend = plt.legend(["samsung", "sk", "lg"])
 legend.set_title("Stock", prop = {'size':15})

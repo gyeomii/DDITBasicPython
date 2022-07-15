@@ -7,13 +7,22 @@ class StockDao:
                        db='python', charset='utf8')
         self.cur = self.conn.cursor(pymysql.cursors.DictCursor)
     
-    def select(self, s_name):
+    def selectPrice(self,s_name):
         ret = []
         sql = f"select s_name, price from stock where s_name = '{s_name}'"
         self.cur.execute(sql)
         rows = self.cur.fetchall()
         for r in rows:
             ret.append(r['price'])
+        return ret
+    
+    def selectName(self):
+        ret = []
+        sql = f"select distinct s_name from stock "
+        self.cur.execute(sql)
+        rows = self.cur.fetchall()
+        for r in rows:
+            ret.append(r['s_name'])
         return ret
     
     def __del__(self):
