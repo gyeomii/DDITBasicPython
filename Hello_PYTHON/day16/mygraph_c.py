@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-from day16.stockdao import StockDao
+from day16.stocksyncdao import StockSyncDao
 import numpy as np
 
-sd = StockDao()
+sd = StockSyncDao()
 
 arr_code = sd.selectCode()
 

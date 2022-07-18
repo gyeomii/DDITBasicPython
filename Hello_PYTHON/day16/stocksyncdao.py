@@ -1,6 +1,6 @@
 import pymysql
 
-class StockDao:
+class StockSyncDao:
     def __init__(self):
         self.conn = pymysql.connect(host='localhost', port=3305,
                        user='root', password='python',
@@ -33,6 +33,6 @@ class StockDao:
         self.conn.close()
         
 if __name__ == '__main__':
-    dao = StockDao()
+    dao = StockSyncDao()
     list = dao.selectCode()
     print(list)
