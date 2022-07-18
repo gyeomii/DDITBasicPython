@@ -33,6 +33,6 @@ class StockSyncDao:
         self.conn.close()
         
 if __name__ == '__main__':
-    dao = StockSyncDao()
-    list = dao.selectCode()
-    print(list)
+    # dao = StockSyncDao()
+    # list = dao.selectCode()
+    # print(list)
