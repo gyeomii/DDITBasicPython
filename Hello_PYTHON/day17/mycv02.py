@@ -1,8 +1,11 @@
 import cv2
 
-img1 = cv2.imread('B.png')
-print('img1', type(img1))
+img1 = cv2.imread('image/R.png')
+img2 = cv2.imread('image/G.png')
+img3 = cv2.imread('image/B.png')
 print('img1', img1)
+print('img2', img2)
+print('img3', img3)
 cv2.imshow('RGB',img1)
 
 # B [255   0   0]

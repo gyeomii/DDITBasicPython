@@ -8,4 +8,4 @@ img45 = cv2.warpAffine(img, M1, (width, height))
 cv2.imshow('rotate45',img45)
 
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()###
