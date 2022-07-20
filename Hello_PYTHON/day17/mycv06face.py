@@ -25,7 +25,7 @@ def imgDetector(img,cascade):
 
     
 # 가중치 파일 경로
-cascade_filename = 'cascade/haarcascade_upperbody.xml'
+cascade_filename = 'cascade/haarcascade_frontalface_alt.xml'
 # 모델 불러오기
 cascade = cv2.CascadeClassifier(cascade_filename)
 
