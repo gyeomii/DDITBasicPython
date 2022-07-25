@@ -1,15 +1,17 @@
-import tensorflow as tf
 # 필요한 라이브러리 불러오기
-from keras.datasets import mnist
-from keras import models
-from keras import layers
-from keras.utils import to_categorical
-import numpy as np
 import cv2
+from keras import layers
+from keras import models
+from keras.datasets import fashion_mnist
+from keras.utils import to_categorical
+
+import numpy as np
 
 # 1. Fashion MNIST 데이터셋 불러오기
-fashion_mnist = tf.keras.datasets.fashion_mnist
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+
+cv2.imshow('fashion', train_images[0])
+cv2.waitKey(0)
 print("train_labels[0]", train_labels[0])
 
 train_images = train_images.reshape((60000, 28 * 28))
@@ -27,7 +29,7 @@ model.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
 model.add(layers.Dense(10, activation='softmax'))
 
 
-model.compile(optimizer='rmsprop',
+model.compile(optimizer='adam',
                 loss='categorical_crossentropy',
                 metrics=['accuracy'])
 

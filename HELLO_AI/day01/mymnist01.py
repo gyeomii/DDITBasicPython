@@ -1,10 +1,9 @@
 # 필요한 라이브러리 불러오기
-import cv2
-from keras import layers
-from keras import models
 from keras.datasets import mnist
+from keras import models
+from keras import layers
 from keras.utils import to_categorical
-
+import cv2
 
 # MNIST 데이터셋 불러오기
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
