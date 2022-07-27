@@ -14,6 +14,7 @@ class MainClass(QMainWindow, form_class):
 
     def __init__(self):
         QMainWindow.__init__(self)
+        self.hky = HerKY()
         self.setupUi(self)
         self.le1.returnPressed.connect(self.myclick)
         self.pb.clicked.connect(self.myclick)
@@ -23,7 +24,6 @@ class MainClass(QMainWindow, form_class):
         self.le2.clear()
         self.le3.clear()
         
-        hky = HerKY()
         
         me = self.le1.text()
         result = ""
@@ -31,11 +31,11 @@ class MainClass(QMainWindow, form_class):
         
         ans = -1
         if me == "가위":
-            ans = hky.guess([[1,0,0]])
+            ans = self.hky.guess([[1,0,0]])
         elif me == "바위":
-            ans = hky.guess([[0,1,0]])
+            ans = self.hky.guess([[0,1,0]])
         elif me == "보":
-            ans = hky.guess([[0,0,1]])
+            ans = self.hky.guess([[0,0,1]])
             
         if ans == 0:
             com = "가위"
