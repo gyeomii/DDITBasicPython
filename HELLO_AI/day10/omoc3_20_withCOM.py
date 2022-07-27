@@ -91,9 +91,10 @@ class WindowClass(QMainWindow, form_class) :
         """승리 판별"""
         if(d1 == 5 or d2 == 5 or d3 == 5 or d4 == 5):
             self.isVictory()
-            
-            
+                
         self.flagWb = not self.flagWb
+        
+        
         
         if self.flagEnd:
             return
@@ -134,8 +135,8 @@ class WindowClass(QMainWindow, form_class) :
         if(d1 == 5 or d2 == 5 or d3 == 5 or d4 == 5):
             self.isVictory()
             
-            
         self.flagWb = not self.flagWb
+        
         
     """승리했을 때 팝업창"""
     def isVictory(self):
