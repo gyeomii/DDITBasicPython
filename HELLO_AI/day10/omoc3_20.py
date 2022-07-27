@@ -4,6 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtCore import QSize
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import numpy as np
 
 
 #UI파일 연결
@@ -19,36 +20,13 @@ class WindowClass(QMainWindow, form_class) :
         self.flagEnd = False
         self.pbRst.clicked.connect(self.resetGame)
         #core
-        self.arr2D = [
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
-                [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0]
-            ]
+        self.arr2D = np.zeros((20,20))
         
         self.pb2D = []
         
-        for i in range(19):
+        for i in range(20):
             line = []
-            for j in range(19):
+            for j in range(20):
                 btn = QPushButton('', self)
                 btn.setIcon(QIcon("0.png"))
                 # (10,10)을 영점으로 계속 버튼 추가
@@ -63,8 +41,8 @@ class WindowClass(QMainWindow, form_class) :
         self.myRender()
                 
     def myRender(self):
-        for i in range(19):
-            for j in range(19):
+        for i in range(20):
+            for j in range(20):
                 if(self.arr2D[i][j] == 0):
                     self.pb2D[i][j].setIcon(QIcon("0.png"))
                 if(self.arr2D[i][j] == 1):
@@ -268,9 +246,9 @@ class WindowClass(QMainWindow, form_class) :
     """ 게임 리셋 """
     def resetGame(self):
         self.arr2D = []
-        for i in range(19):
+        for i in range(20):
             line = []
-            for j in range(19):
+            for j in range(20):
                 line.append(0)
                 
             self.arr2D.append(line)
