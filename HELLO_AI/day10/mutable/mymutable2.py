@@ -1,5 +1,6 @@
 def changeInt(a):
     a = 3
+    print("a",a)
     
 def changeArr(a):
     a[0] = 3
@@ -13,6 +14,6 @@ print(bb[0])
 changeInt(b)
 changeArr(bb)
 
-print(b)
+print("b", b)
 print(bb[0])
 

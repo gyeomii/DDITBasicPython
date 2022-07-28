@@ -12,9 +12,6 @@ public class MyRef {
 		int b = 1;
 		int[] bb = {1};
 		
-		System.out.println(b);
-		System.out.println(bb[0]);
-		
 		changeInt(b);
 		changeArr(bb);
 
