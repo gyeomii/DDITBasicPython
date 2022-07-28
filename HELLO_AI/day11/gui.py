@@ -56,10 +56,18 @@ for y in range(h):
             input[(input != 1) & (input != 0)] = -1
             input[(input == 1) & (input != 0)] = 1
             input = np.expand_dims(input, axis=(0, -1)).astype(np.float32)
-
+            
+            input_show = input
+            input_show = np.reshape(input_show, (20,20))
+            
+            print("shape", input.shape)
+            print("input", input_show)
+            
             output = model.predict(input).squeeze()
             output = output.reshape((h, w))
             output_y, output_x = np.unravel_index(np.argmax(output), output.shape)
+            
+            print("output_y, output_x", output_y, output_x)
 
             game.put(x=output_x, y=output_y)
 
