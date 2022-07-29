@@ -61,6 +61,7 @@ class WindowClass(QMainWindow, form_class) :
         
         i = int(y-1)
         j = int(x-1)
+        
         """"유효성 검사 (function의 흐름제어용)"""
         if self.arr2D[i][j] > 0:
             return
