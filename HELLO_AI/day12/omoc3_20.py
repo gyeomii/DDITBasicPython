@@ -17,7 +17,7 @@ class WindowClass(QMainWindow, form_class) :
         self.setupUi(self)
         self.flagWb = False # false : 흑돌
         self.flagEnd = False
-        self.pbRst.clicked.connect(self.putOmoc)
+        self.pbReset.clicked.connect(self.putOmoc)
         self.arr2D = np.zeros((20,20), dtype=int)
         self.pb2D = []
         self.idx = 1

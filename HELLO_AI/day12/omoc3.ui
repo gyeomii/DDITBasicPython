@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pbRst">
+   <widget class="QPushButton" name="pbReset">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="toolTip">
-     <string>reset</string>
+     <string>pbReset</string>
     </property>
     <property name="text">
      <string>복기</string>
