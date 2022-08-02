@@ -29,7 +29,7 @@ class MainClass(QMainWindow, form_class):
             for j in range(20):
                 btn = QPushButton('', self)
                 btn.setIcon(QtGui.QIcon('0.png'))
-                btn.setGeometry(j*40, i*40, 40, 40)
+                btn.setGeometry(10+j*40, 10+i*40, 40, 40)
                 btn.setIconSize(QtCore.QSize(40,40))
                 btn.setToolTip("{},{}".format(i,j))
                 line.append(btn)

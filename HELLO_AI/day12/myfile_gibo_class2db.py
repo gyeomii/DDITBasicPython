@@ -24,7 +24,7 @@ class RaoGibo:
         print("cnt :",cnt)
         
     def getGibo(self):
-        file_name = "0_0_2_2.psq"
+        file_name = "0_0_1_2.psq"
         arr_i =[]
         arr_j =[]
         f = open(file_name, 'r')

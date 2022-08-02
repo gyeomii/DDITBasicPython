@@ -10,15 +10,11 @@ class DaoGibo:
     def getPanMax(self):
         mymax=0
         sql = f"""
-            Select max(pan)+1 as max from gibo
+            Select IFNULL(max(pan),0)+1 as max from gibo
             """
         self.cur.execute(sql)
         rows = self.cur.fetchall()
-
-        if rows[0]['max'] == None :
-            mymax = 1
-        else:
-            mymax = rows[0]['max']
+        mymax = rows[0]['max']
         return mymax
         
     def insert(self, pan, win, gibos, gibos_ai, anss):
