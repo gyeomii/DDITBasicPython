@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>{{hgd}}</div>
+
+<hr>
+
+<table border='1px'>
+<tr>
+<th>이름</th>
+{% for k in arrName %}
+<td>
+{{k}}
+</td>
+{% endfor %}
+</tr>
+</table>
+
+<hr>
+
+<table border='1px'>
+	<tr>
+		<th>사번</th>
+		<th>이름</th>
+		<th>성별</th>
+		<th>주소</th>
+	</tr>
+	{% for i in list %}
+	<tr>
+	{% for j in range(4) %}
+		<td>
+		{{i[j]}}
+		</td>
+	{%endfor%}
+	</tr>
+	{%endfor%}
+</table>
+
+<hr>
+
+key : value <br>
+{% for dict in dictArr %}
+{% for key, value in dict.items() %}
+{{key}} : {{value}} <br>
+{%endfor%}
+{%endfor%}
+
+<hr>
+
+<table border='1px'>
+	<tr>
+		<th>사번</th>
+		<th>이름</th>
+		<th>성별</th>
+		<th>주소</th>
+	</tr>
+	{% for dict in dictArr %}
+	<tr>
+		<td>{{dict.e_id}}</td>
+		<td>{{dict.e_name}}</td>
+		<td>{{dict.sex}}</td>
+		<td>{{dict.addr}}</td>
+	</tr>
+	{%endfor%}
+</table>
+
+</body>
+</html>
